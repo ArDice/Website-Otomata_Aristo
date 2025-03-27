@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Number Validator</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            text-align: center;
+            background-color: orange;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h2 {
+            font-size: 36px;
+        }
+        input, button, a {
+            color: black;
+            font-size: 24px;
+            padding: 10px;
+            margin: 10px;
+        }
+        #message {
+            font-size: 28px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Scientific Number Validator</h2>
+    <input type="text" id="inputNumber" placeholder="Enter a number">
+    <button onclick="validateNumber()">Check</button>
+    <p id="message"></p>
+    <br>
+    <a href="about.html" target="_blank">About</a>
+
+    <script>
+        function validateNumber() {
+            const input = document.getElementById("inputNumber").value.trim();
+            const scientificNumberPattern = /^[+-]?\d+(\.\d+)?([eE][+-]?\d+)?$/;
+            const messageElement = document.getElementById("message");
+            
+            if (scientificNumberPattern.test(input)) {
+                messageElement.textContent = "Yes, it is a number";
+                messageElement.style.color = "green";
+            } else {
+                messageElement.textContent = "No, it is not a number";
+                messageElement.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
